@@ -346,8 +346,8 @@ export default function Playground(): React.ReactElement {
                           labels: 'bug',
                           body: [
                             '### Environment\n',
-                            `- **PLC IDE**: Try Online (${versionInfo ? `v${versionInfo.version}, ${versionInfo.commit_short}` : 'unknown'})`,
-                            '- **iec-checker version**: ' + (versionInfo ? `${versionInfo.commit_short} (${versionInfo.commit_date.split(' ')[0]})` : 'unknown'),
+                            '- **PLC IDE**: <!-- e.g. CODESYS 3.5 SP19, TIA Portal V18, Beckhoff TwinCAT 3.1 -->',
+                            '- **iec-checker version**: ' + (versionInfo ? `${versionInfo.version} (${versionInfo.commit_short}, ${versionInfo.commit_date.split(' ')[0]})` : 'unknown'),
                             '- **Platform**: Try Online\n',
                             '### Source code\n',
                             '```iecst',
