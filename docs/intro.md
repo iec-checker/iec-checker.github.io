@@ -24,7 +24,7 @@ Supported input formats:
 
 If iec-checker does not support Structured Text extensions from your PLC vendor, please [open an issue](https://github.com/iec-checker/iec-checker/issues/new) — adding new dialects is usually a small parser change.
 
-Alternatively, if you're looking for support of more languages, new detectors, or your vendor's extensions as first-class citizens, you may consider [sponsored development](./funding.md).
+Alternatively, if you're looking for support of more languages, new detectors, or your vendor's extensions as first-class citizens, you may consider [sponsor development](./funding.md).
 
 ## What it checks
 

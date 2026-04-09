@@ -1,9 +1,9 @@
 ---
-title: Sponsored Development
-slug: /sponsored-development
+title: Sponsor Development
+slug: /sponsor-development
 ---
 
-# Sponsored Development
+# Sponsor Development
 
 iec-checker is an open-source tool available for free.
 

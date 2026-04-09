@@ -26,6 +26,10 @@
   --docusaurus-highlighted-code-line-bg: rgba(116, 198, 157, 0.15);
 }
 
+.sidebar-sponsor > a {
+  font-weight: 700;
+}
+
 .sidebars-separator {
   margin: 0.75rem 1rem;
   border: none;

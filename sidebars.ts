@@ -11,7 +11,12 @@ const sidebars: SidebarsConfig = {
       type: 'html',
       value: '<hr class="sidebars-separator" />',
     },
-    { type: 'doc', id: 'funding', label: 'Sponsored Development' },
+    {
+      type: 'doc',
+      id: 'funding',
+      label: 'Sponsor Development',
+      className: 'sidebar-sponsor',
+    },
     {
       type: 'html',
       value: '<hr class="sidebars-separator" /><span class="menu__link"><b> Detectors </b></span>',

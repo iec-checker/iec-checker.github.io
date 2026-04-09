@@ -102,7 +102,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [],
-      copyright: `Copyright © ${new Date().getFullYear()} <a href="/docs/sponsored-development" style="color: inherit; text-decoration: underline;">iec-checker contributors</a>`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="/docs/sponsor-development" style="color: inherit; text-decoration: underline;">iec-checker contributors</a>`,
     },
     prism: {
       theme: prismThemes.github,
