@@ -52,6 +52,10 @@ const config: Config = {
             'https://github.com/iec-checker/iec-checker.github.io/tree/main/',
         },
         blog: false,
+        gtag: {
+          trackingID: 'G-J7N5642ZHP',
+          anonymizeIP: true,
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
