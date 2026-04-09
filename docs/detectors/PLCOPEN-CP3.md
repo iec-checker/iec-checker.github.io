@@ -1,6 +1,4 @@
-# Variables shall be initialized before being used
-
-**Rule ID**: `PLCOPEN-CP3`
+# PLCOPEN-CP3: Variables shall be initialized before being used
 
 Every variable declaration should carry an explicit initializer.
 

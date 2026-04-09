@@ -1,6 +1,4 @@
-# Access to a member shall be by name
-
-**Rule ID**: `PLCOPEN-CP1`
+# PLCOPEN-CP1: Access to a member shall be by name
 
 Direct addressing should not be used when a symbolic name exists.
 

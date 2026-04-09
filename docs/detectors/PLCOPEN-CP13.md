@@ -1,6 +1,4 @@
-# POUs shall not call themselves directly or indirectly
-
-**Rule ID**: `PLCOPEN-CP13`
+# PLCOPEN-CP13: POUs shall not call themselves directly or indirectly
 
 Recursion is forbidden in IEC 61131-3 — rewrite as a loop.
 

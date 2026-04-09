@@ -1,6 +1,4 @@
-# Time and physical measures comparisons shall not be equality or inequality
-
-**Rule ID**: `PLCOPEN-CP28`
+# PLCOPEN-CP28: Time and physical measures comparisons shall not be equality or inequality
 
 Use range comparisons instead of `=` / `<>` when comparing `TIME` values.
 

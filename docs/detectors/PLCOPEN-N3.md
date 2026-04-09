@@ -1,6 +1,4 @@
-# Define the names to avoid
-
-**Rule ID**: `PLCOPEN-N3`
+# PLCOPEN-N3: Define the names to avoid
 
 Variable names must not collide with IEC 61131-3 keywords or standard library
 identifiers.

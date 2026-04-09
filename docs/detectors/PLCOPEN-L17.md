@@ -1,6 +1,4 @@
-# Each IF instruction should have an ELSE clause
-
-**Rule ID**: `PLCOPEN-L17`
+# PLCOPEN-L17: Each IF instruction should have an ELSE clause
 
 Every `IF` should explicitly handle the `ELSE` case.
 

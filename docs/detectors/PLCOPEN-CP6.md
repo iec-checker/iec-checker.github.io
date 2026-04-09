@@ -1,6 +1,4 @@
-# Avoid external variables in functions, function blocks and classes
-
-**Rule ID**: `PLCOPEN-CP6`
+# PLCOPEN-CP6: Avoid external variables in functions, function blocks and classes
 
 Functions, function blocks and classes should not depend on global state via
 `VAR_EXTERNAL`.

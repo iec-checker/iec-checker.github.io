@@ -1,6 +1,4 @@
-# Data type conversion should be explicit
-
-**Rule ID**: `PLCOPEN-CP25`
+# PLCOPEN-CP25: Data type conversion should be explicit
 
 Implicit casts between integer and floating-point types are forbidden.
 

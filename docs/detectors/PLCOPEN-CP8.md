@@ -1,6 +1,4 @@
-# Floating point comparison shall not be equality or inequality
-
-**Rule ID**: `PLCOPEN-CP8`
+# PLCOPEN-CP8: Floating point comparison shall not be equality or inequality
 
 Use a tolerance instead of `=` or `<>` when comparing `REAL` values.
 

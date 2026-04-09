@@ -1,6 +1,4 @@
-# Limit the complexity of POU code
-
-**Rule ID**: `PLCOPEN-CP9`
+# PLCOPEN-CP9: Limit the complexity of POU code
 
 POUs that exceed McCabe or statement-count thresholds should be split.
 

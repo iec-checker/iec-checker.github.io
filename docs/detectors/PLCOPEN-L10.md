@@ -1,6 +1,4 @@
-# Usage of CONTINUE and EXIT instructions should be avoided
-
-**Rule ID**: `PLCOPEN-L10`
+# PLCOPEN-L10: Usage of CONTINUE and EXIT instructions should be avoided
 
 Loop bodies should fall through naturally instead of using `CONTINUE` / `EXIT`.
 

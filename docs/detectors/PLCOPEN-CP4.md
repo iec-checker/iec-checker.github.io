@@ -1,6 +1,4 @@
-# Direct addressing should not overlap
-
-**Rule ID**: `PLCOPEN-CP4`
+# PLCOPEN-CP4: Direct addressing should not overlap
 
 Two directly-addressed variables must not occupy overlapping memory.
 

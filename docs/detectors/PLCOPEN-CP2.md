@@ -1,6 +1,4 @@
-# All code shall be used in the application
-
-**Rule ID**: `PLCOPEN-CP2`
+# PLCOPEN-CP2: All code shall be used in the application
 
 Unreachable code reflects a logic mistake and should be removed.
 
