@@ -1,0 +1,44 @@
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
+
+const sidebars: SidebarsConfig = {
+  sidebar: [
+    { type: 'doc', id: 'intro', label: 'Introduction' },
+    { type: 'doc', id: 'installation', label: 'Installation' },
+    { type: 'doc', id: 'cli', label: 'CLI Reference' },
+    { type: 'doc', id: 'ci-cd', label: 'CI/CD Integration' },
+    { type: 'doc', id: 'python', label: 'Python Integration' },
+    {
+      type: 'html',
+      value: '<hr class="sidebars-separator" />',
+    },
+    { type: 'doc', id: 'funding', label: 'Sponsored Development' },
+    {
+      type: 'html',
+      value: '<hr class="sidebars-separator" /><span class="menu__link"><b> Detectors </b></span>',
+    },
+    { type: 'doc', id: 'detectors', label: 'Overview' },
+    {
+      type: 'category',
+      label: 'PLCOpen Guidelines',
+      collapsed: false,
+      items: [
+        { type: 'doc', id: 'detectors/plcopen-overview', label: 'Overview' },
+        { type: 'doc', id: 'detectors/PLCOPEN-CP1', label: 'PLCOPEN-CP1' },
+        { type: 'doc', id: 'detectors/PLCOPEN-CP2', label: 'PLCOPEN-CP2' },
+        { type: 'doc', id: 'detectors/PLCOPEN-CP3', label: 'PLCOPEN-CP3' },
+        { type: 'doc', id: 'detectors/PLCOPEN-CP4', label: 'PLCOPEN-CP4' },
+        { type: 'doc', id: 'detectors/PLCOPEN-CP6', label: 'PLCOPEN-CP6' },
+        { type: 'doc', id: 'detectors/PLCOPEN-CP8', label: 'PLCOPEN-CP8' },
+        { type: 'doc', id: 'detectors/PLCOPEN-CP9', label: 'PLCOPEN-CP9' },
+        { type: 'doc', id: 'detectors/PLCOPEN-CP13', label: 'PLCOPEN-CP13' },
+        { type: 'doc', id: 'detectors/PLCOPEN-CP25', label: 'PLCOPEN-CP25' },
+        { type: 'doc', id: 'detectors/PLCOPEN-CP28', label: 'PLCOPEN-CP28' },
+        { type: 'doc', id: 'detectors/PLCOPEN-L10', label: 'PLCOPEN-L10' },
+        { type: 'doc', id: 'detectors/PLCOPEN-L17', label: 'PLCOPEN-L17' },
+        { type: 'doc', id: 'detectors/PLCOPEN-N3', label: 'PLCOPEN-N3' },
+      ],
+    },
+  ],
+};
+
+export default sidebars;

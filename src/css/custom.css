@@ -1,0 +1,33 @@
+/**
+ * Global styles. Infima is bundled by the classic preset.
+ * iec-checker uses a dark forest-green palette.
+ */
+
+:root {
+  --ifm-color-primary: #2d6a4f;
+  --ifm-color-primary-dark: #296048;
+  --ifm-color-primary-darker: #265b44;
+  --ifm-color-primary-darkest: #1b4332;
+  --ifm-color-primary-light: #317456;
+  --ifm-color-primary-lighter: #34795a;
+  --ifm-color-primary-lightest: #408b6b;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(45, 106, 79, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #74c69d;
+  --ifm-color-primary-dark: #5fbd8e;
+  --ifm-color-primary-darker: #54b886;
+  --ifm-color-primary-darkest: #3ea36e;
+  --ifm-color-primary-light: #89cfac;
+  --ifm-color-primary-lighter: #94d4b4;
+  --ifm-color-primary-lightest: #b7dec9;
+  --docusaurus-highlighted-code-line-bg: rgba(116, 198, 157, 0.15);
+}
+
+.sidebars-separator {
+  margin: 0.75rem 1rem;
+  border: none;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
