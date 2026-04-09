@@ -30,6 +30,13 @@ export default function Home(): React.ReactElement {
             </a>
             <a
               className="button button--secondary button--lg"
+              href="/playground"
+            >
+              <i className="fa-solid fa-play" aria-hidden="true" />
+              {' '}Try Online
+            </a>
+            <a
+              className="button button--secondary button--lg"
               href="https://github.com/iec-checker/iec-checker"
             >
               <i className="fa-brands fa-github" aria-hidden="true" />

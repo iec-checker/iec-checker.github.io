@@ -88,6 +88,11 @@ const config: Config = {
           position: 'left',
         },
         {
+          to: '/playground',
+          label: 'Try Online',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/iec-checker/iec-checker',
           label: 'GitHub',
           position: 'right',
