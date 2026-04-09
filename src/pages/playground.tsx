@@ -343,7 +343,23 @@ export default function Playground(): React.ReactElement {
                         className={styles.reportLink}
                         href={`https://github.com/iec-checker/iec-checker/issues/new?${new URLSearchParams({
                           title: 'Parser error from Try Online',
-                          body: `**Input program:**\n\`\`\`iecst\n${code}\n\`\`\`\n\n**Diagnostics:**\n\`\`\`json\n${JSON.stringify(diagnostics.filter((d) => d.id === 'ParserError' || d.id === 'LexingError'), null, 2)}\n\`\`\`\n`,
+                          labels: 'bug',
+                          body: [
+                            '### Environment\n',
+                            `- **PLC IDE**: Try Online (${versionInfo ? `v${versionInfo.version}, ${versionInfo.commit_short}` : 'unknown'})`,
+                            '- **iec-checker version**: ' + (versionInfo ? `${versionInfo.commit_short} (${versionInfo.commit_date.split(' ')[0]})` : 'unknown'),
+                            '- **Platform**: Try Online\n',
+                            '### Source code\n',
+                            '```iecst',
+                            code,
+                            '```\n',
+                            '### Current behavior\n',
+                            '```',
+                            diagnostics.filter((d) => d.id === 'ParserError' || d.id === 'LexingError').map((d) => `${d.linenr}:${d.column} ${d.id}: ${d.msg || 'Syntax error'}`).join('\n'),
+                            '```\n',
+                            '### Expected behavior\n',
+                            '<!-- What you expected to happen instead. -->',
+                          ].join('\n'),
                         }).toString()}`}
                         target="_blank"
                         rel="noopener noreferrer"
