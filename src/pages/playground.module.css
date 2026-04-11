@@ -341,6 +341,64 @@
   color: var(--ifm-color-primary);
 }
 
+.configPopup {
+  width: 460px;
+  max-width: calc(100vw - 2rem);
+}
+
+.configHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.configCopyButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.55rem;
+  font-size: 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 5px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-emphasis-700);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.configCopyButton:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.configHint {
+  margin: 0 0 0.6rem 0;
+  font-size: 0.78rem;
+  color: var(--ifm-color-emphasis-600);
+  line-height: 1.45;
+}
+
+.configHint code {
+  font-size: 0.78rem;
+}
+
+.configPre {
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  max-height: 50vh;
+  overflow: auto;
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 6px;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--ifm-font-color-base);
+  white-space: pre;
+}
+
 /* Responsive: stack panels vertically on narrow screens */
 @media (max-width: 768px) {
   .panels {

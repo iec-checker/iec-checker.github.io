@@ -1,0 +1,18 @@
+{
+  "detectors": { "disabled": [], "enabled": [] },
+  "thresholds": {
+    "mccabe_complexity": 15,
+    "statements_count": 25,
+    "max_string_length": 4096
+  },
+  "output": { "format": "plain", "color": true },
+  "input": { "format": "st", "merge": false, "exclude_paths": [] },
+  "analysis": { "dump": false, "verbose": false },
+  "naming_conventions": {
+    "type_prefixes": {},
+    "case": { "variable": null, "constant": null, "pou": null, "type": null },
+    "min_length": 0,
+    "max_length": 0,
+    "udt_prefixes": {}
+  }
+}
