@@ -39,7 +39,7 @@ Print the list of all available detectors and exit. Useful for discovering which
 
 ### `-c`, `--config CONFIG_FILE`
 
-Path to a configuration file (`iec_checker.json`). If not specified, iec-checker looks for `iec_checker.json` in the current directory and its parents. See [Configuration](/configuration) for details.
+Path to a configuration file (`iec_checker.json`). If not specified, iec-checker looks for `iec_checker.json` in the current directory and its parents. See [Configuration](/docs/configuration) for details.
 
 ### `--dump-config`
 
