@@ -11,22 +11,22 @@ iec-checker tracks the [PLCOpen Software Construction Guidelines](https://plcope
 - **TBD** — planned (issue link tracks progress)
 - **✗** — not planned (not feasible for static analysis)
 
-iec-checker currently covers **13 of 64** rules from the standard.
+iec-checker currently covers **21 of 64** rules from the standard.
 
 ## 3. Naming Rules
 
 | Rule | Status | Description |
 | ---- | :----: | ----------- |
-| [N1](https://github.com/iec-checker/iec-checker/issues/15)   | TBD | Avoid physical addresses |
-| [N2](https://github.com/iec-checker/iec-checker/issues/34)   | TBD | Define type prefixes for variables (if used) |
+| [N1](./PLCOPEN-N1.md)   | ✓ | Avoid physical addresses |
+| [N2](./PLCOPEN-N2.md)   | ✓ | Define type prefixes for variables (if used) |
 | [N3](./PLCOPEN-N3.md)   | ✓ | Define the names to avoid |
-| [N4](https://github.com/iec-checker/iec-checker/issues/35)   | TBD | Define the use of case (capitals) |
-| [N5](https://github.com/iec-checker/iec-checker/issues/36)   | TBD | Local names shall not shadow global names |
-| [N6](https://github.com/iec-checker/iec-checker/issues/37)   | TBD | Define an acceptable name length |
+| [N4](./PLCOPEN-N4.md)   | ✓ | Define the use of case (capitals) |
+| [N5](./PLCOPEN-N5.md)   | ✓ | Local names shall not shadow global names |
+| [N6](./PLCOPEN-N6.md)   | ✓ | Define an acceptable name length |
 | N7   | ✗ | Define naming rules for namespaces |
-| [N8](https://github.com/iec-checker/iec-checker/issues/38)   | TBD | Define the acceptable character set |
-| [N9](https://github.com/iec-checker/iec-checker/issues/39)   | TBD | Different element types should not bear the same name |
-| [N10](https://github.com/iec-checker/iec-checker/issues/40)  | TBD | Define name prefixes for user defined types |
+| [N8](./PLCOPEN-N8.md)   | ✓ | Define the acceptable character set |
+| [N9](./PLCOPEN-N9.md)   | ✓ | Different element types should not bear the same name |
+| [N10](./PLCOPEN-N10.md) | ✓ | Define name prefixes for user defined types |
 
 ## 4. Comment Rules
 

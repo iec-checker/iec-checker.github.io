@@ -67,7 +67,7 @@ export default function Home(): React.ReactElement {
                 <div className={styles.featureBox}>
                   <h3>📋 PLCOpen Compliance</h3>
                   <p>
-                    13{' '}
+                    21{' '}
                     <a href="/docs/detectors">PLCOpen Guideline checks</a>{' '}
                     covering naming, initialization, complexity, recursion,
                     floating-point comparison and more.
@@ -144,7 +144,7 @@ export default function Home(): React.ReactElement {
           <div className="container">
             <h2 className={styles.featuresTitle}>Discover Detectors</h2>
             <p className={styles.featuresSummary}>
-              iec-checker ships with 13 built-in detectors that catch the
+              iec-checker ships with 21 built-in detectors that catch the
               most common classes of mistakes in Structured Text code.
             </p>
 

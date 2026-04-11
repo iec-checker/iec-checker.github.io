@@ -37,6 +37,18 @@ Output format for warnings. Default: `plain`.
 
 Print the list of all available detectors and exit. Useful for discovering which checks are enabled and what rule IDs to expect in the output.
 
+### `-c`, `--config CONFIG_FILE`
+
+Path to a configuration file (`iec_checker.json`). If not specified, iec-checker looks for `iec_checker.json` in the current directory and its parents. See [Configuration](/configuration) for details.
+
+### `--dump-config`
+
+Print the effective configuration (defaults merged with config file and CLI overrides) as JSON and exit. Useful for debugging configuration issues.
+
+### `--generate-config`
+
+Write a default `iec_checker.json` to the current directory and exit. The generated file contains all options with their default values.
+
 ### `--no-color`
 
 Disable colored output. Useful when piping iec-checker output to a file or into another tool that does not understand ANSI escape codes.

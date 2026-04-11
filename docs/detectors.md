@@ -6,7 +6,7 @@ slug: /detectors
 
 # Detectors
 
-iec-checker ships with **13 built-in detectors** implementing PLCOpen Guideline checks. Each detector has a stable rule ID that appears in the analyzer's output.
+iec-checker ships with **21 built-in detectors** implementing PLCOpen Guideline checks. Each detector has a stable rule ID that appears in the analyzer's output.
 
 ## Built-in detectors
 
@@ -24,7 +24,15 @@ iec-checker ships with **13 built-in detectors** implementing PLCOpen Guideline 
 | 10 | [PLCOPEN-CP28](./detectors/PLCOPEN-CP28.md)    | Time and physical measures comparison shall not be equality or inequality |
 | 11 | [PLCOPEN-L10](./detectors/PLCOPEN-L10.md)      | Usage of CONTINUE and EXIT instruction should be avoided             |
 | 12 | [PLCOPEN-L17](./detectors/PLCOPEN-L17.md)      | Each IF instruction should have an ELSE clause                       |
-| 13 | [PLCOPEN-N3](./detectors/PLCOPEN-N3.md)        | Define the names to avoid                                            |
+| 13 | [PLCOPEN-N1](./detectors/PLCOPEN-N1.md)        | Avoid physical addresses                                             |
+| 14 | [PLCOPEN-N2](./detectors/PLCOPEN-N2.md)        | Define type prefixes for variables                                   |
+| 15 | [PLCOPEN-N3](./detectors/PLCOPEN-N3.md)        | Define the names to avoid                                            |
+| 16 | [PLCOPEN-N4](./detectors/PLCOPEN-N4.md)        | Define the use of case (capitals)                                    |
+| 17 | [PLCOPEN-N5](./detectors/PLCOPEN-N5.md)        | Local names shall not shadow global names                            |
+| 18 | [PLCOPEN-N6](./detectors/PLCOPEN-N6.md)        | Define an acceptable name length                                     |
+| 19 | [PLCOPEN-N8](./detectors/PLCOPEN-N8.md)        | Define the acceptable character set                                  |
+| 20 | [PLCOPEN-N9](./detectors/PLCOPEN-N9.md)        | Different element types should not bear the same name                |
+| 21 | [PLCOPEN-N10](./detectors/PLCOPEN-N10.md)      | Define name prefixes for user defined types                          |
 
 ## Categories
 
