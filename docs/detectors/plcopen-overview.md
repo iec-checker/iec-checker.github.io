@@ -11,7 +11,7 @@ iec-checker tracks the [PLCOpen Software Construction Guidelines](https://plcope
 - **TBD** — planned (issue link tracks progress)
 - **✗** — not planned (not feasible for static analysis)
 
-iec-checker currently covers **21 of 64** rules from the standard.
+iec-checker currently covers **25 of 64** rules from the standard.
 
 ## 3. Naming Rules
 
@@ -58,7 +58,7 @@ iec-checker currently covers **21 of 64** rules from the standard.
 | [CP13](./PLCOPEN-CP13.md) | ✓ | POUs shall not call themselves directly or indirectly |
 | [CP14](https://github.com/iec-checker/iec-checker/issues/46) | TBD | POUs shall have a single point of exit |
 | CP15 | ✗ | Read a variable written by another task only once per cycle |
-| [CP16](https://github.com/iec-checker/iec-checker/issues/47) | TBD | Tasks shall only call program POUs and not function blocks |
+| [CP16](./PLCOPEN-CP16.md) | ✓ | Tasks shall only call program POUs and not function blocks |
 | [CP17](https://github.com/iec-checker/iec-checker/issues/48) | TBD | Usage of parameters shall match their declaration mode |
 | CP18 | ✗ | Use of global variables shall be limited |
 | CP19 | ✗ | Usage of jump and return should be avoided |
@@ -68,7 +68,7 @@ iec-checker currently covers **21 of 64** rules from the standard.
 | [CP23](https://github.com/iec-checker/iec-checker/issues/50) | TBD | Define maximum number of input/output/in-out variables of a POU |
 | [CP24](https://github.com/iec-checker/iec-checker/issues/51) | TBD | Do not declare variables that are not used |
 | [CP25](./PLCOPEN-CP25.md) | ✓ | Data types conversion should be explicit |
-| [CP26](https://github.com/iec-checker/iec-checker/issues/52) | TBD | A global variable may be written only by one PROGRAM |
+| [CP26](./PLCOPEN-CP26.md) | ✓ | A global variable may be written only by one PROGRAM |
 | [CP27](https://github.com/iec-checker/iec-checker/issues/53) | TBD | Avoid deprecated features |
 | [CP28](./PLCOPEN-CP28.md) | ✓ | Time and physical measures comparison shall not be equality or inequality |
 
@@ -109,12 +109,12 @@ iec-checker currently covers **21 of 64** rules from the standard.
 | L4   | ✗ | Define general formatting rules |
 | [L10](./PLCOPEN-L10.md) | ✓ | Usage of CONTINUE and EXIT instruction should be avoided |
 | [L11](https://github.com/iec-checker/iec-checker/issues/54)  | TBD | Define the maximum line length |
-| [L13](https://github.com/iec-checker/iec-checker/issues/55)  | TBD | FOR loop variable usage should not be used outside the FOR loop |
+| [L13](./PLCOPEN-L13.md) | ✓ | FOR loop variable usage should not be used outside the FOR loop |
 | L14  | ✗ | Passing parameters should be clear |
 | L15  | ✗ | Use parenthesis to explicitly express operation precedence |
 | L16  | ✗ | Define the use of tabs |
 | [L17](./PLCOPEN-L17.md) | ✓ | Each IF instruction should have an ELSE clause |
-| [L22](https://github.com/iec-checker/iec-checker/issues/56)  | TBD | Loop variables should not be modified inside a FOR loop |
+| [L22](./PLCOPEN-L22.md) | ✓ | Loop variables should not be modified inside a FOR loop |
 
 ## 7. Vendor Specific IEC 61131-3 Extensions
 
