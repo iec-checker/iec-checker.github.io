@@ -25,6 +25,15 @@ const sidebars: SidebarsConfig = {
     { type: 'doc', id: 'detectors', label: 'Overview' },
     {
       type: 'category',
+      label: 'Built-in detectors',
+      collapsed: false,
+      items: [
+        { type: 'doc', id: 'detectors/OutOfBounds', label: 'OutOfBounds' },
+        { type: 'doc', id: 'detectors/UnusedVariable', label: 'UnusedVariable' },
+      ],
+    },
+    {
+      type: 'category',
       label: 'PLCOpen Guidelines',
       collapsed: false,
       items: [

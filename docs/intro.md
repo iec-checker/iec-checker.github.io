@@ -28,9 +28,9 @@ Alternatively, if you're looking for support of more languages, new detectors, o
 
 ## What it checks
 
-iec-checker ships with **25 PLCOpen Guideline detectors** out of the box, covering naming, initialization, complexity, recursion, floating-point comparison, type conversion, and more.
+iec-checker ships with **27 built-in detectors** out of the box: 25 PLCOpen Guideline checks covering naming, initialization, complexity, recursion, floating-point comparison, and type conversion, plus 2 general correctness checks for out-of-bounds access and unused variables.
 
-It also performs declaration analysis for derived types, intraprocedural control-flow analysis to find unreachable code, and unused-variable detection.
+It also performs declaration analysis for derived types and intraprocedural control-flow analysis to find unreachable code.
 
 See the [Detectors overview](./detectors.md) for the full list.
 

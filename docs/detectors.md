@@ -6,9 +6,25 @@ slug: /detectors
 
 # Detectors
 
-iec-checker ships with **25 built-in detectors** implementing PLCOpen Guideline checks. Each detector has a stable rule ID that appears in the analyzer's output.
+iec-checker ships with **27 detectors** out of the box. Each detector has a stable rule ID that appears in the analyzer's output.
+
+The detectors fall into two groups:
+
+- **Built-in detectors** — general correctness checks (out-of-bounds access, unused variables) that always run.
+- **PLCOpen detectors** — checks implementing rules from the [PLCOpen Software Construction Guidelines](https://plcopen.org/software-construction-guidelines).
 
 ## Built-in detectors
+
+| # | Rule ID                                              | Description                                                                |
+| - | ---------------------------------------------------- | -------------------------------------------------------------------------- |
+| 1 | [OutOfBounds](./detectors/OutOfBounds.md)            | Out-of-range array index, subrange initializer, or string/array initializer length |
+| 2 | [UnusedVariable](./detectors/UnusedVariable.md)      | Local variable declared in a POU but never read or written                 |
+
+## PLCOpen detectors
+
+These checks implement rules from the [PLCOpen Software Construction Guidelines](https://plcopen.org/software-construction-guidelines), an industry-standard set of best practices for safe and maintainable Structured Text. Rule IDs follow the PLCOpen numbering: `CP*` for code construction, `L*` for language usage, `N*` for naming.
+
+See the [PLCOpen coverage matrix](./detectors/plcopen-overview.md) for the full list of standard rules and which ones are implemented.
 
 | #  | Rule ID                                        | Description                                                          |
 | -- | ---------------------------------------------- | -------------------------------------------------------------------- |
@@ -37,11 +53,3 @@ iec-checker ships with **25 built-in detectors** implementing PLCOpen Guideline 
 | 23 | [PLCOPEN-N8](./detectors/PLCOPEN-N8.md)        | Define the acceptable character set                                  |
 | 24 | [PLCOPEN-N9](./detectors/PLCOPEN-N9.md)        | Different element types should not bear the same name                |
 | 25 | [PLCOPEN-N10](./detectors/PLCOPEN-N10.md)      | Define name prefixes for user defined types                          |
-
-## Categories
-
-### PLCOpen Guidelines
-
-These checks implement rules from the [PLCOpen Software Construction Guidelines](https://plcopen.org/software-construction-guidelines), an industry-standard set of best practices for safe and maintainable Structured Text. Rule IDs follow the PLCOpen numbering: `CP*` for code construction, `L*` for language usage, `N*` for naming.
-
-See the [PLCOpen coverage matrix](./detectors/plcopen-overview.md) for the full list of standard rules and which ones are implemented.

@@ -64,6 +64,7 @@ END_PROGRAM
 
 // Known detector IDs that have docs pages
 const DETECTOR_DOC_IDS = new Set([
+  'OutOfBounds', 'UnusedVariable',
   'PLCOPEN-CP1', 'PLCOPEN-CP2', 'PLCOPEN-CP3', 'PLCOPEN-CP4',
   'PLCOPEN-CP6', 'PLCOPEN-CP8', 'PLCOPEN-CP9', 'PLCOPEN-CP13',
   'PLCOPEN-CP25', 'PLCOPEN-CP28', 'PLCOPEN-L10', 'PLCOPEN-L17',
