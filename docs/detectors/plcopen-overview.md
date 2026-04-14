@@ -133,7 +133,3 @@ Not currently supported — IL was deprecated in IEC 61131-3 Edition 3 and is be
 | E1   | ❌ | Dynamic memory allocation shall not be used |
 | E2   | ❌ | Pointer arithmetic shall not be used |
 | E3   | ❌ | Some comparator instructions shall not be used for pointers or reference manipulation |
-
----
-
-Want a rule that isn't covered yet? [Open an issue](https://github.com/iec-checker/iec-checker/issues) or get in touch at [jubnzv@gmail.com](mailto:jubnzv@gmail.com) — funded work on additional detectors is available.
