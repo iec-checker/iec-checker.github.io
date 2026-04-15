@@ -366,6 +366,9 @@ export default function Playground(): React.ReactElement {
                 const hasParseErrors = diagnostics.some(
                   (d) => d.id === 'ParserError' || d.id === 'LexingError',
                 );
+                const onlyParseErrors = hasParseErrors && diagnostics.every(
+                  (d) => d.id === 'ParserError' || d.id === 'LexingError',
+                );
                 return (
                   <>
                     <ul className={styles.diagnosticList}>
@@ -424,7 +427,9 @@ export default function Playground(): React.ReactElement {
                         rel="noopener noreferrer"
                       >
                         <i className="fa-solid fa-bug" aria-hidden="true" />{' '}
-                        Looks like a bug? Report this issue
+                        {onlyParseErrors
+                          ? 'Using a vendor ST extension we don\u2019t know yet? Open an issue and help us add support.'
+                          : 'Looks like a bug? Report this issue'}
                       </a>
                     )}
                   </>
