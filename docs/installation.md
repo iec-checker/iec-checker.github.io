@@ -6,9 +6,20 @@ slug: /installation
 
 # Installation
 
+## Docker
+
+Nightly builds are published to Docker Hub automatically by a weekly GitHub Actions workflow. Pull the image and run the checker against files from the current directory:
+
+```bash
+docker pull jubnzv1/iec-checker:nightly
+docker run --rm -v "$PWD:/src" -w /src jubnzv1/iec-checker:nightly program.st
+```
+
+The `ENTRYPOINT` is `iec_checker`, so any CLI flags (for example `-o json`, `--list-checks`) can be appended directly.
+
 ## Prebuilt binaries
 
-The fastest way to get iec-checker is to grab a prebuilt binary from the [GitHub releases page](https://github.com/iec-checker/iec-checker/releases). Builds are published for:
+The fastest way to get iec-checker without Docker is to grab a prebuilt binary from the [GitHub releases page](https://github.com/iec-checker/iec-checker/releases). Builds are published for:
 
 - Linux x86_64
 - Windows x86_64
