@@ -47,6 +47,7 @@ const sidebars: SidebarsConfig = {
         { type: 'doc', id: 'detectors/PLCOPEN-CP9', label: 'PLCOPEN-CP9' },
         { type: 'doc', id: 'detectors/PLCOPEN-CP13', label: 'PLCOPEN-CP13' },
         { type: 'doc', id: 'detectors/PLCOPEN-CP16', label: 'PLCOPEN-CP16' },
+        { type: 'doc', id: 'detectors/PLCOPEN-CP17', label: 'PLCOPEN-CP17' },
         { type: 'doc', id: 'detectors/PLCOPEN-CP25', label: 'PLCOPEN-CP25' },
         { type: 'doc', id: 'detectors/PLCOPEN-CP26', label: 'PLCOPEN-CP26' },
         { type: 'doc', id: 'detectors/PLCOPEN-CP28', label: 'PLCOPEN-CP28' },

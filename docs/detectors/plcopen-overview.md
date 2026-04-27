@@ -11,7 +11,7 @@ iec-checker tracks the [PLCOpen Software Construction Guidelines](https://plcope
 - **TBD** — planned (issue link tracks progress)
 - ❌ — not planned (not feasible for static analysis)
 
-iec-checker currently covers **25 of 64** rules from the standard.
+iec-checker currently covers **26 of 64** rules from the standard.
 
 ## 3. Naming Rules
 
@@ -59,7 +59,7 @@ iec-checker currently covers **25 of 64** rules from the standard.
 | [CP14](https://github.com/iec-checker/iec-checker/issues/46) | TBD | POUs shall have a single point of exit |
 | CP15 | ❌ | Read a variable written by another task only once per cycle |
 | [CP16](./PLCOPEN-CP16.md) | ✅ | Tasks shall only call program POUs and not function blocks |
-| [CP17](https://github.com/iec-checker/iec-checker/issues/48) | TBD | Usage of parameters shall match their declaration mode |
+| [CP17](./PLCOPEN-CP17.md) | ✅ | Usage of parameters shall match their declaration mode |
 | CP18 | ❌ | Use of global variables shall be limited |
 | CP19 | ❌ | Usage of jump and return should be avoided |
 | [CP20](https://github.com/iec-checker/iec-checker/issues/49) | TBD | Function block instances should be called only once |
