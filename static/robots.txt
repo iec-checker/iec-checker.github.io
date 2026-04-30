@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iec-checker.github.io/sitemap.xml
