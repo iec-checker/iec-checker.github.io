@@ -96,6 +96,33 @@
   flex-shrink: 0;
 }
 
+.editorWrap {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  background: var(--ifm-background-color);
+}
+
+.lineNumbers {
+  flex-shrink: 0;
+  padding: 1rem 0.6rem 1rem 0.8rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-500);
+  background: var(--ifm-color-emphasis-100);
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+  text-align: right;
+  white-space: pre;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: none;
+  box-sizing: border-box;
+  min-width: 2.8rem;
+  tab-size: 4;
+}
+
 .editorTextarea {
   flex: 1;
   width: 100%;
@@ -109,6 +136,7 @@
   background: var(--ifm-background-color);
   color: var(--ifm-font-color-base);
   tab-size: 4;
+  box-sizing: border-box;
 }
 
 .editorTextarea::placeholder {

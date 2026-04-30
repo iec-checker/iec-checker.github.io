@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useMemo, useRef } from 'react';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import styles from './playground.module.css';
@@ -88,6 +88,29 @@ export default function Playground(): React.ReactElement {
   const [showConfig, setShowConfig] = useState(false);
   const [configCopied, setConfigCopied] = useState(false);
   const [versionInfo, setVersionInfo] = useState<VersionInfo | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const gutterRef = useRef<HTMLDivElement | null>(null);
+
+  const lineCount = useMemo(() => {
+    // Always show at least one line number, and add one for a trailing newline.
+    if (!code) return 1;
+    const n = code.split('\n').length;
+    return n;
+  }, [code]);
+
+  const lineNumbers = useMemo(
+    () => Array.from({ length: lineCount }, (_, i) => i + 1).join('\n'),
+    [lineCount],
+  );
+
+  const handleEditorScroll = useCallback(
+    (e: React.UIEvent<HTMLTextAreaElement>) => {
+      if (gutterRef.current) {
+        gutterRef.current.scrollTop = e.currentTarget.scrollTop;
+      }
+    },
+    [],
+  );
 
   const copyConfig = useCallback(() => {
     if (typeof navigator === 'undefined' || !navigator.clipboard) return;
@@ -321,16 +344,27 @@ export default function Playground(): React.ReactElement {
           {/* Editor */}
           <div className={styles.editorPanel}>
             <div className={styles.panelHeader}>Structured Text</div>
-            <textarea
-              className={styles.editorTextarea}
-              value={code}
-              onChange={(e) => setCode(e.target.value)}
-              onKeyDown={handleKeyDown}
-              placeholder="Paste your IEC 61131-3 Structured Text program here…"
-              spellCheck={false}
-              autoCapitalize="off"
-              autoCorrect="off"
-            />
+            <div className={styles.editorWrap}>
+              <div
+                ref={gutterRef}
+                className={styles.lineNumbers}
+                aria-hidden="true"
+              >
+                {lineNumbers}
+              </div>
+              <textarea
+                ref={textareaRef}
+                className={styles.editorTextarea}
+                value={code}
+                onChange={(e) => setCode(e.target.value)}
+                onKeyDown={handleKeyDown}
+                onScroll={handleEditorScroll}
+                placeholder="Paste your IEC 61131-3 Structured Text program here…"
+                spellCheck={false}
+                autoCapitalize="off"
+                autoCorrect="off"
+              />
+            </div>
           </div>
 
           {/* Results */}
