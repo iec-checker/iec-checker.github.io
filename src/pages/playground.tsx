@@ -526,7 +526,7 @@ export default function Playground(): React.ReactElement {
                             '- **Platform**: Try Online\n',
                             '### Source code\n',
                             '```iecst',
-                            code,
+                            code.length > 150 ? '<!-- please paste the program here -->' : code,
                             '```\n',
                             '### Current behavior\n',
                             '```',
