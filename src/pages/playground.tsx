@@ -112,6 +112,74 @@ export default function Playground(): React.ReactElement {
     [],
   );
 
+  const goToLocation = useCallback(
+    (line: number, col: number) => {
+      const ta = textareaRef.current;
+      if (!ta) return;
+      const lines = code.split('\n');
+      if (line < 1 || line > lines.length) return;
+      let start = 0;
+      for (let i = 0; i < line - 1; i++) start += lines[i].length + 1;
+      const lineLen = lines[line - 1].length;
+      const targetCol = Math.max(1, Math.min(col, lineLen + 1));
+      const end = start + lineLen;
+      ta.focus();
+      ta.setSelectionRange(start, end);
+      // Scroll the target line roughly into the middle of the viewport.
+      const cs = window.getComputedStyle(ta);
+      const lineHeightPx =
+        parseFloat(cs.lineHeight) ||
+        parseFloat(cs.fontSize) * 1.5 ||
+        18;
+      const desired =
+        (line - 1) * lineHeightPx - ta.clientHeight / 2 + lineHeightPx / 2;
+      ta.scrollTop = Math.max(0, desired);
+      void targetCol; // col currently only used for validation/clamping
+    },
+    [code],
+  );
+
+  const isValidLocation = useCallback(
+    (line: number, col: number) => {
+      if (!Number.isFinite(line) || !Number.isFinite(col)) return false;
+      if (line < 1 || col < 1) return false;
+      const total = code ? code.split('\n').length : 0;
+      return line <= total;
+    },
+    [code],
+  );
+
+  const renderMessageWithLocations = useCallback(
+    (msg: string): React.ReactNode => {
+      const re = /(?<![\w.])(\d+):(\d+)(?![\w.])/g;
+      const out: React.ReactNode[] = [];
+      let last = 0;
+      let m: RegExpExecArray | null;
+      let key = 0;
+      while ((m = re.exec(msg)) !== null) {
+        const line = parseInt(m[1], 10);
+        const col = parseInt(m[2], 10);
+        if (!isValidLocation(line, col)) continue;
+        if (m.index > last) out.push(msg.slice(last, m.index));
+        out.push(
+          <button
+            key={`loc-${key++}`}
+            type="button"
+            className={styles.locationLink}
+            onClick={() => goToLocation(line, col)}
+            title={`Jump to line ${line}`}
+          >
+            {m[0]}
+          </button>,
+        );
+        last = m.index + m[0].length;
+      }
+      if (last < msg.length) out.push(msg.slice(last));
+      return out.length > 0 ? out : msg;
+    },
+    [goToLocation, isValidLocation],
+  );
+
   const copyConfig = useCallback(() => {
     if (typeof navigator === 'undefined' || !navigator.clipboard) return;
     navigator.clipboard.writeText(DEFAULT_CONFIG_JSON).then(() => {
@@ -412,9 +480,20 @@ export default function Playground(): React.ReactElement {
                         const msg = d.msg || (isError ? 'Syntax error' : 'Unknown issue');
                         return (
                           <li key={i} className={`${styles.diagnosticItem} ${isError ? styles.diagnosticError : ''}`}>
-                            <span className={styles.diagnosticLocation}>
-                              {d.linenr}:{d.column}
-                            </span>
+                            {isValidLocation(d.linenr, d.column) ? (
+                              <button
+                                type="button"
+                                className={`${styles.diagnosticLocation} ${styles.locationLink}`}
+                                onClick={() => goToLocation(d.linenr, d.column)}
+                                title={`Jump to line ${d.linenr}`}
+                              >
+                                {d.linenr}:{d.column}
+                              </button>
+                            ) : (
+                              <span className={styles.diagnosticLocation}>
+                                {d.linenr}:{d.column}
+                              </span>
+                            )}
                             <span className={isError ? styles.diagnosticIdError : styles.diagnosticId}>
                               {docUrl ? (
                                 <a
@@ -429,7 +508,7 @@ export default function Playground(): React.ReactElement {
                                 d.id
                               )}
                             </span>
-                            <span className={styles.diagnosticMsg}>{msg}</span>
+                            <span className={styles.diagnosticMsg}>{renderMessageWithLocations(msg)}</span>
                           </li>
                         );
                       })}

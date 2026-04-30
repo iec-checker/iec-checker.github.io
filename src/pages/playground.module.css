@@ -210,6 +210,28 @@
   min-width: 4rem;
 }
 
+.locationLink {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: var(--ifm-color-primary);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.locationLink:hover,
+.locationLink:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
+button.diagnosticLocation.locationLink {
+  text-align: left;
+}
+
 .diagnosticId {
   font-family: var(--ifm-font-family-monospace);
   font-size: 0.8rem;
