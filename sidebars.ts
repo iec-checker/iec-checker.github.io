@@ -6,6 +6,7 @@ const sidebars: SidebarsConfig = {
     { type: 'doc', id: 'installation', label: 'Installation' },
     { type: 'doc', id: 'cli', label: 'CLI Reference' },
     { type: 'doc', id: 'configuration', label: 'Configuration' },
+    { type: 'doc', id: 'standard-extensions', label: 'Standard Extensions' },
     { type: 'doc', id: 'ci-cd', label: 'CI/CD Integration' },
     { type: 'doc', id: 'python', label: 'Python Integration' },
     {

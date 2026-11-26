@@ -22,7 +22,7 @@ Supported input formats:
 - [PLCOpen XML](https://plcopen.org/technical-activities/xml-exchange)
 - [SEL XML](https://selinc.com/products/3530/) (Schweitzer Engineering Laboratories vendor format)
 
-If iec-checker does not support Structured Text extensions from your PLC vendor, please [open an issue](https://github.com/iec-checker/iec-checker/issues/new) — adding new dialects is usually a small parser change.
+The non-standard constructs that iec-checker accepts are listed in [Standard Extensions](./standard-extensions.md). If iec-checker does not support Structured Text extensions from your PLC vendor, please [open an issue](https://github.com/iec-checker/iec-checker/issues/new) — adding new dialects is usually a small parser change.
 
 Alternatively, if you're looking for support of more languages, new detectors, or your vendor's extensions as first-class citizens, you may consider [sponsor development](./funding.md).
 
