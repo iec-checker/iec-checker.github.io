@@ -11,7 +11,9 @@ last write — all of which are non-deterministic and impossible to test for.
 
 This rule fires on every **non-located** `VAR` declaration that has no
 initializer. Located variables (`AT %...`) are exempt because the address
-itself defines where the value comes from.
+itself defines where the value comes from. `VAR_IN_OUT` and `VAR_EXTERNAL`
+declarations are exempt too: the standard gives them no initializer, since the
+caller or the `VAR_GLOBAL` declaration supplies the value.
 
 ## Example
 

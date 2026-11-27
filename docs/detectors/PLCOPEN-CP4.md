@@ -12,7 +12,8 @@ site.
 
 This rule walks every variable declaration that uses direct addressing and
 flags any pair whose address ranges overlap, taking each variable's type size
-into account.
+into account. Two variables at the same address are reported too. Only
+addresses in the same memory area (`%I`, `%Q` or `%M`) are compared.
 
 ## Example
 

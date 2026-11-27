@@ -30,8 +30,11 @@ Code that the standard rejects, but which PLC tools commonly accept.
 | Located variables in a function | `FUNCTION f : INT VAR x AT %IX0.0 : BOOL; END_VAR ...` | Functions declare only `VAR [CONSTANT]` without locations (B.1.5.1) |
 | `VAR_EXTERNAL` in a function | `FUNCTION f : INT VAR_EXTERNAL g : INT; END_VAR ...` | Not allowed in functions (B.1.5.1). [PLCOPEN-CP6](./detectors/PLCOPEN-CP6) reports it |
 | `CONFIGURATION` without a `RESOURCE` | `CONFIGURATION c VAR_GLOBAL g : INT; END_VAR END_CONFIGURATION` | At least one resource (B.1.7) |
-| Variable sections after the resources of a configuration | `... END_RESOURCE VAR x : INT; END_VAR END_CONFIGURATION` | Only `VAR_ACCESS` and `VAR_CONFIG` there (B.1.7) |
+| Variable sections after the resources of a configuration | `... END_RESOURCE VAR x : INT; END_VAR END_CONFIGURATION` | Only `VAR_ACCESS` and `VAR_CONFIG` there (B.1.7). Accepted only in a configuration that also has a `VAR_GLOBAL` section |
 | Several `VAR_GLOBAL` sections in a configuration or resource | `VAR_GLOBAL CONSTANT k : INT := 1; END_VAR VAR_GLOBAL run : BOOL; END_VAR` | One section (B.1.7). `CONSTANT` and `RETAIN` qualify a whole section, so constant and other globals need separate ones. Beremiz generates this form |
+| Initial values in `VAR_IN_OUT` and `VAR_EXTERNAL` | `VAR_IN_OUT v : INT := 1; END_VAR` | These sections take no initial value (B.1.4.3): the value comes from the caller or from the `VAR_GLOBAL` |
+| Generic types in variable declarations | `n : ANY_NUM;` | Generic types shall not be used in user-declared POUs (2.3.2) |
+| Empty `TYPE` block | `TYPE END_TYPE` | At least one type declaration (B.1.3.3) |
 | A fractional value in any duration unit | `T#1.5d2h` | Only the last unit can be fractional (B.1.2.3.1) |
 | `STRING#` with a double-quoted literal | `STRING#"text"` | `STRING` literals use single quotes (B.1.2.2) |
 | Positional and named arguments in one call | `f(1, b := 2)` | All arguments are named, or all are positional (2.5.1.1, table 19a) |
@@ -50,14 +53,20 @@ Code that the standard rejects, but which PLC tools commonly accept.
 
 The 3rd edition (2013) added the following constructs, which the parser accepts. They are not part of the 2nd edition:
 
-- `//` comments;
+- `//` and `/* ... */` comments; `/* */` comments nest, like `(* *)`;
 - `BOOL#TRUE` / `BOOL#FALSE`, `STRING#'text'`;
 - bit access to variables: `w.5`, `w.%X5`;
 - named constants as `CASE` labels and initial values: `K: ...`, `x : INT := K;`;
-- empty bodies of functions, function blocks and programs;
+- empty statement lists: bodies of functions, function blocks and programs, `IF`/`ELSIF`/`ELSE` branches, `CASE`
+  arms and loop bodies (`IF b THEN (* later *) END_IF;`);
+- functions without a result type: `FUNCTION reset_all ... END_FUNCTION`;
 - `VAR_TEMP` in functions;
-- references: `REF_TO`, assignment attempt `?=`;
-- classes, methods and interfaces: `CLASS`, `METHOD`, `INTERFACE`, `EXTENDS`, `IMPLEMENTS` on classes;
+- empty variable sections: `VAR END_VAR`;
+- `STRUCT OVERLAP`;
+- enumerations with values, also with a base type: `(A := 1, B := 5)`, `INT (A := 1, B := 2)`;
+- references: `REF_TO`, `REF()`, `NULL`, the `^` dereference (`r^`, `r^ := 1`), assignment attempt `?=`;
+- classes, methods and interfaces: `CLASS`, `METHOD`, `INTERFACE`, `EXTENDS`, `IMPLEMENTS` on classes, `ABSTRACT`
+  and `FINAL` classes, `ABSTRACT` methods, the access specifiers `PUBLIC`, `PRIVATE`, `PROTECTED`, `INTERNAL`;
 - `CONTINUE`;
 - `CHAR`, `WCHAR`, `LTIME`, `LDATE`, `LTOD`, `LDT` and the `LT#`, `LD#` prefixes;
 - `NON_RETAIN`.

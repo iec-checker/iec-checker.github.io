@@ -75,7 +75,7 @@ Accept Structured Text from stdin in a REPL-style loop. Default: non-interactive
 
 ### `PATHS`
 
-Positional. One or more paths to source files or directories. Use `-` to read from stdin.
+Positional. One or more paths to source files or directories. Use `-` to read the program from stdin, up to the end of input. With `-I`, only the first line is read.
 
 ## Exit codes
 

@@ -1,7 +1,8 @@
 # PLCOPEN-N5: Local names shall not shadow global names
 
 A local variable declaration must not reuse a name that is already declared
-at global scope.
+at global scope. A `VAR_EXTERNAL` declaration is not reported: it refers to the
+global itself.
 
 ## Why is it bad?
 
