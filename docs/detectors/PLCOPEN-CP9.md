@@ -11,10 +11,12 @@ so that the engineer reading it can hold the whole control flow in their head.
 
 This rule reports two metrics independently:
 
-- **McCabe cyclomatic complexity** of the control-flow graph (each conditional
-  adds one to the count). Threshold: `Config.mccabe_complexity_threshold`.
-- **Number of statements** in the POU. Threshold:
-  `Config.statements_num_threshold`.
+- **McCabe cyclomatic complexity**: 1, plus one for each `IF`, `ELSIF`,
+  `CASE` selection, `FOR`, `WHILE` and `REPEAT`. `AND`/`OR` in a condition,
+  calls and `RETURN` add nothing. Threshold: `Config.mccabe_complexity_threshold`.
+- **Number of statements** in the POU, nested ones included. Each `ELSIF`
+  branch counts as one; conditions, call arguments and empty statements do
+  not count. Threshold: `Config.statements_num_threshold`.
 
 A violation of either metric should prompt extracting helper functions or
 flattening conditional logic.

@@ -13,7 +13,11 @@ This rule fires on every **non-located** `VAR` declaration that has no
 initializer. Located variables (`AT %...`) are exempt because the address
 itself defines where the value comes from. `VAR_IN_OUT` and `VAR_EXTERNAL`
 declarations are exempt too: the standard gives them no initializer, since the
-caller or the `VAR_GLOBAL` declaration supplies the value.
+caller or the `VAR_GLOBAL` declaration supplies the value. So are instances of
+the standard function blocks (`TON`, `CTU`, `R_TRIG`, ...) and of function
+blocks and classes declared in the checked files: an instance takes the
+initial values its type declares. An instance of a function block from a
+library the checker does not see is still reported.
 
 ## Example
 

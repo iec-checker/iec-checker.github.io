@@ -19,7 +19,8 @@ This rule fires in four cases:
 3. A subrange variable is initialized with a value outside its declared range.
 4. A `STRING` (or `WSTRING` / `CHAR` / `WCHAR`) initializer literal is longer
    than the declared capacity, or an array initializer list has more elements
-   than the array can hold.
+   than the array can hold. A `$` escape (`$$`, `$N`, `$'`, `$20`, `$0041`)
+   is one character of the literal, as is a non-ASCII character.
 
 ## Example
 

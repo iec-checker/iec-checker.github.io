@@ -12,15 +12,24 @@ make `a = b` return `FALSE` when the values are mathematically equal.
 The fix is to compare the absolute difference against a tolerance value
 appropriate for the application.
 
+This rule fires on `=` and `<>` when either side is a REAL literal or a
+variable declared `REAL` or `LREAL` in the same POU, including its
+`VAR_INPUT`, `VAR_OUTPUT` and `VAR_EXTERNAL` sections. The `x <> x` test for
+NaN is reported too. Struct fields, array elements and function results are
+not checked.
+
 ## Example
 
 ```iecst
 PROGRAM demo
-  VAR x : REAL; END_VAR
+  VAR x : REAL; y : REAL; END_VAR
   IF x = 0.0 THEN     (* PLCOPEN-CP8 *)
     x := x + 1;
   END_IF;
   IF x <> 0.0 THEN    (* PLCOPEN-CP8 *)
+    x := x + 1;
+  END_IF;
+  IF x = y THEN       (* PLCOPEN-CP8 *)
     x := x + 1;
   END_IF;
 END_PROGRAM
