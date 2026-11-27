@@ -269,6 +269,26 @@ button.diagnosticLocation.locationLink {
   color: #fca5a5;
 }
 
+.diagnosticIdHint {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2563eb;
+  white-space: nowrap;
+}
+
+.diagnosticHint {
+  background: #eff6ff;
+}
+
+[data-theme='dark'] .diagnosticHint {
+  background: #172554;
+}
+
+[data-theme='dark'] .diagnosticIdHint {
+  color: #93c5fd;
+}
+
 .diagnosticMsg {
   flex: 1;
   color: var(--ifm-font-color-base);

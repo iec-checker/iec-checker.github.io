@@ -14,6 +14,9 @@ interface Diagnostic {
   id: string;
   msg: string;
   type: string[];
+  // Set on the backend's hints (id 'Hint'); `report` is false when the input, not the parser, is at fault.
+  kind?: string;
+  report?: boolean;
 }
 
 const API_BASE =
@@ -469,17 +472,21 @@ export default function Playground(): React.ReactElement {
                   (d) => d.id === 'ParserError' || d.id === 'LexingError',
                 );
                 const onlyParseErrors = hasParseErrors && diagnostics.every(
-                  (d) => d.id === 'ParserError' || d.id === 'LexingError',
+                  (d) => d.id === 'ParserError' || d.id === 'LexingError' || d.id === 'Hint',
                 );
+                const inputAtFault = diagnostics.some((d) => d.id === 'Hint' && d.report === false);
                 return (
                   <>
                     <ul className={styles.diagnosticList}>
                       {diagnostics.map((d, i) => {
                         const docUrl = detectorDocUrl(d.id);
                         const isError = d.id === 'ParserError' || d.id === 'LexingError';
+                        const isHint = d.id === 'Hint';
                         const msg = d.msg || (isError ? 'Syntax error' : 'Unknown issue');
+                        const itemClass = isError ? styles.diagnosticError : isHint ? styles.diagnosticHint : '';
+                        const idClass = isError ? styles.diagnosticIdError : isHint ? styles.diagnosticIdHint : styles.diagnosticId;
                         return (
-                          <li key={i} className={`${styles.diagnosticItem} ${isError ? styles.diagnosticError : ''}`}>
+                          <li key={i} className={`${styles.diagnosticItem} ${itemClass}`}>
                             {isValidLocation(d.linenr, d.column) ? (
                               <button
                                 type="button"
@@ -494,7 +501,8 @@ export default function Playground(): React.ReactElement {
                                 {d.linenr}:{d.column}
                               </span>
                             )}
-                            <span className={isError ? styles.diagnosticIdError : styles.diagnosticId}>
+                            <span className={idClass}>
+                              {isHint && <i className="fa-solid fa-lightbulb" aria-hidden="true" />}{' '}
                               {docUrl ? (
                                 <a
                                   href={docUrl}
@@ -513,7 +521,7 @@ export default function Playground(): React.ReactElement {
                         );
                       })}
                     </ul>
-                    {hasParseErrors && (
+                    {hasParseErrors && !inputAtFault && (
                       <a
                         className={styles.reportLink}
                         href={`https://github.com/iec-checker/iec-checker/issues/new?${new URLSearchParams({
