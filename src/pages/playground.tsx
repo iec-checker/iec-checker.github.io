@@ -65,6 +65,74 @@ END_VAR
   END_IF;
 END_PROGRAM
 `,
+  'Duty pump selection': `FUNCTION_BLOCK FB_DutyPump
+VAR_INPUT
+  abAvailable : ARRAY[1..4] OF BOOL := [4(TRUE)];
+  fPressure   : REAL := 0.0;
+END_VAR
+VAR_OUTPUT
+  abRun   : ARRAY[1..4] OF BOOL := [4(FALSE)];
+  nDuty   : INT := 1;
+  bDryRun : BOOL := FALSE;
+END_VAR
+VAR
+  i      : INT := 1;
+  tonRun : TON;
+END_VAR
+FOR i := 1 TO 4 DO
+  IF abAvailable[i] THEN
+    EXIT;
+  END_IF;
+END_FOR;
+nDuty := i;
+abRun[nDuty] := NOT bDryRun;
+tonRun(IN := abRun[nDuty], PT := T#60S);
+IF tonRun.ET = T#5S AND fPressure < 1.5 THEN
+  bDryRun := TRUE;
+END_IF;
+END_FUNCTION_BLOCK
+`,
+  'Analog input scaling': `FUNCTION_BLOCK FB_AnalogIn
+VAR_INPUT
+  iRaw      : INT := 0;
+  fDeadband : REAL := 0.5;
+END_VAR
+VAR_OUTPUT
+  fValue  : REAL := 0.0;
+  bReport : BOOL := FALSE;
+END_VAR
+VAR
+  fRaw      : REAL := 0.0;
+  fReported : REAL := 0.0;
+END_VAR
+(* 4..20 mA = 5530..27648 counts -> 0..100 % *)
+fRaw := iRaw;
+fValue := (fRaw - 5530.0) * 100.0 / 22118.0;
+bReport := fValue <> fReported;
+IF bReport THEN
+  fReported := fValue;
+END_IF;
+END_FUNCTION_BLOCK
+`,
+  'Lift I/O mapping': `PROGRAM PRG_IoMap
+VAR
+  diEStopOk    AT %IX0.0 : BOOL;
+  aiLiftPos    AT %IW64  : INT;
+  diEncoderCnt AT %ID66  : DINT;
+  wVfdStatus   AT %IW68  : WORD;
+  doBrakeRel   AT %QX0.0 : BOOL;
+END_VAR
+VAR_EXTERNAL
+  gstIn  : ST_LiftInputs;
+  gstOut : ST_LiftOutputs;
+END_VAR
+gstIn.fPosMm    := INT_TO_REAL(aiLiftPos) / 10.0;
+gstIn.nEncoder  := diEncoderCnt;
+gstIn.bVfdFault := wVfdStatus.3;
+doBrakeRel := gstOut.bBrakeRelease AND diEStopOk;
+%QX0.5 := gstOut.bWarningLamp;
+END_PROGRAM
+`,
 };
 
 // Known detector IDs that have docs pages
