@@ -37,6 +37,10 @@ Output format for warnings. Default: `plain`.
 
 Print the list of all available detectors and exit. Useful for discovering which checks are enabled and what rule IDs to expect in the output.
 
+### `--version`
+
+Print the version (`iec_checker 0.5.0`) and exit.
+
 ### `-c`, `--config CONFIG_FILE`
 
 Path to a configuration file (`iec_checker.json`). If not specified, iec-checker looks for `iec_checker.json` in the current directory and its parents. See [Configuration](/docs/configuration) for details.
