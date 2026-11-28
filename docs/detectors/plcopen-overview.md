@@ -11,7 +11,7 @@ iec-checker tracks the [PLCOpen Software Construction Guidelines](https://plcope
 - **TBD** — planned (issue link tracks progress)
 - ❌ — not planned (not feasible for static analysis)
 
-iec-checker currently covers **26 of 64** rules from the standard.
+iec-checker currently covers **27 of 64** rules from the standard.
 
 ## 3. Naming Rules
 
@@ -62,7 +62,7 @@ iec-checker currently covers **26 of 64** rules from the standard.
 | [CP17](./PLCOPEN-CP17.md) | ✅ | Usage of parameters shall match their declaration mode |
 | CP18 | ❌ | Use of global variables shall be limited |
 | CP19 | ❌ | Usage of jump and return should be avoided |
-| [CP20](https://github.com/iec-checker/iec-checker/issues/49) | TBD | Function block instances should be called only once |
+| [CP20](./PLCOPEN-CP20.md) | ✅ | Function block instances should be called only once |
 | CP21 | ❌ | Use VAR_TEMP for temporary variable declaration |
 | CP22 | ❌ | Select appropriate data type |
 | [CP23](https://github.com/iec-checker/iec-checker/issues/50) | TBD | Define maximum number of input/output/in-out variables of a POU |

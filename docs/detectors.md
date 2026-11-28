@@ -6,11 +6,11 @@ slug: /detectors
 
 # Detectors
 
-iec-checker ships with **28 detectors** out of the box. Each detector has a stable rule ID that appears in the analyzer's output.
+iec-checker ships with **30 detectors** out of the box. Each detector has a stable rule ID that appears in the analyzer's output.
 
 The detectors fall into two groups:
 
-- **Built-in detectors** — general correctness checks (out-of-bounds access, unused variables) that always run.
+- **Built-in detectors** — general correctness checks (out-of-bounds access, unused variables, uncalled function block instances) that always run.
 - **PLCOpen detectors** — checks implementing rules from the [PLCOpen Software Construction Guidelines](https://plcopen.org/software-construction-guidelines).
 
 ## Built-in detectors
@@ -19,6 +19,7 @@ The detectors fall into two groups:
 | - | ---------------------------------------------------- | -------------------------------------------------------------------------- |
 | 1 | [OutOfBounds](./detectors/OutOfBounds.md)            | Out-of-range array index, subrange initializer, or string/array initializer length |
 | 2 | [UnusedVariable](./detectors/UnusedVariable.md)      | Local variable declared in a POU but never read or written                 |
+| 3 | [UncalledInstance](./detectors/UncalledInstance.md)  | Function block instance whose inputs or outputs are used, but which is never called |
 
 ## PLCOpen detectors
 
@@ -38,19 +39,20 @@ See the [PLCOpen coverage matrix](./detectors/plcopen-overview.md) for the full 
 | 8  | [PLCOPEN-CP13](./detectors/PLCOPEN-CP13.md)    | POUs shall not call themselves directly or indirectly                 |
 | 9  | [PLCOPEN-CP16](./detectors/PLCOPEN-CP16.md)    | Tasks shall only call program POUs and not function blocks           |
 | 10 | [PLCOPEN-CP17](./detectors/PLCOPEN-CP17.md)    | Usage of parameters shall match their declaration mode               |
-| 11 | [PLCOPEN-CP25](./detectors/PLCOPEN-CP25.md)    | Data types conversion should be explicit                             |
-| 12 | [PLCOPEN-CP26](./detectors/PLCOPEN-CP26.md)    | A global variable may be written only by one PROGRAM                 |
-| 13 | [PLCOPEN-CP28](./detectors/PLCOPEN-CP28.md)    | Time and physical measures comparison shall not be equality or inequality |
-| 14 | [PLCOPEN-L10](./detectors/PLCOPEN-L10.md)      | Usage of CONTINUE and EXIT instruction should be avoided             |
-| 15 | [PLCOPEN-L13](./detectors/PLCOPEN-L13.md)      | FOR loop variable should not be used outside the FOR loop            |
-| 16 | [PLCOPEN-L17](./detectors/PLCOPEN-L17.md)      | Each IF instruction should have an ELSE clause                       |
-| 17 | [PLCOPEN-L22](./detectors/PLCOPEN-L22.md)      | Loop variables should not be modified inside a FOR loop              |
-| 18 | [PLCOPEN-N1](./detectors/PLCOPEN-N1.md)        | Avoid physical addresses                                             |
-| 19 | [PLCOPEN-N2](./detectors/PLCOPEN-N2.md)        | Define type prefixes for variables                                   |
-| 20 | [PLCOPEN-N3](./detectors/PLCOPEN-N3.md)        | Define the names to avoid                                            |
-| 21 | [PLCOPEN-N4](./detectors/PLCOPEN-N4.md)        | Define the use of case (capitals)                                    |
-| 22 | [PLCOPEN-N5](./detectors/PLCOPEN-N5.md)        | Local names shall not shadow global names                            |
-| 23 | [PLCOPEN-N6](./detectors/PLCOPEN-N6.md)        | Define an acceptable name length                                     |
-| 24 | [PLCOPEN-N8](./detectors/PLCOPEN-N8.md)        | Define the acceptable character set                                  |
-| 25 | [PLCOPEN-N9](./detectors/PLCOPEN-N9.md)        | Different element types should not bear the same name                |
-| 26 | [PLCOPEN-N10](./detectors/PLCOPEN-N10.md)      | Define name prefixes for user defined types                          |
+| 11 | [PLCOPEN-CP20](./detectors/PLCOPEN-CP20.md)    | Function block instances should be called only once                  |
+| 12 | [PLCOPEN-CP25](./detectors/PLCOPEN-CP25.md)    | Data types conversion should be explicit                             |
+| 13 | [PLCOPEN-CP26](./detectors/PLCOPEN-CP26.md)    | A global variable may be written only by one PROGRAM                 |
+| 14 | [PLCOPEN-CP28](./detectors/PLCOPEN-CP28.md)    | Time and physical measures comparison shall not be equality or inequality |
+| 15 | [PLCOPEN-L10](./detectors/PLCOPEN-L10.md)      | Usage of CONTINUE and EXIT instruction should be avoided             |
+| 16 | [PLCOPEN-L13](./detectors/PLCOPEN-L13.md)      | FOR loop variable should not be used outside the FOR loop            |
+| 17 | [PLCOPEN-L17](./detectors/PLCOPEN-L17.md)      | Each IF instruction should have an ELSE clause                       |
+| 18 | [PLCOPEN-L22](./detectors/PLCOPEN-L22.md)      | Loop variables should not be modified inside a FOR loop              |
+| 19 | [PLCOPEN-N1](./detectors/PLCOPEN-N1.md)        | Avoid physical addresses                                             |
+| 20 | [PLCOPEN-N2](./detectors/PLCOPEN-N2.md)        | Define type prefixes for variables                                   |
+| 21 | [PLCOPEN-N3](./detectors/PLCOPEN-N3.md)        | Define the names to avoid                                            |
+| 22 | [PLCOPEN-N4](./detectors/PLCOPEN-N4.md)        | Define the use of case (capitals)                                    |
+| 23 | [PLCOPEN-N5](./detectors/PLCOPEN-N5.md)        | Local names shall not shadow global names                            |
+| 24 | [PLCOPEN-N6](./detectors/PLCOPEN-N6.md)        | Define an acceptable name length                                     |
+| 25 | [PLCOPEN-N8](./detectors/PLCOPEN-N8.md)        | Define the acceptable character set                                  |
+| 26 | [PLCOPEN-N9](./detectors/PLCOPEN-N9.md)        | Different element types should not bear the same name                |
+| 27 | [PLCOPEN-N10](./detectors/PLCOPEN-N10.md)      | Define name prefixes for user defined types                          |

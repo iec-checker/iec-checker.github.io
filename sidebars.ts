@@ -31,6 +31,7 @@ const sidebars: SidebarsConfig = {
       items: [
         { type: 'doc', id: 'detectors/OutOfBounds', label: 'OutOfBounds' },
         { type: 'doc', id: 'detectors/UnusedVariable', label: 'UnusedVariable' },
+        { type: 'doc', id: 'detectors/UncalledInstance', label: 'UncalledInstance' },
       ],
     },
     {
@@ -49,6 +50,7 @@ const sidebars: SidebarsConfig = {
         { type: 'doc', id: 'detectors/PLCOPEN-CP13', label: 'PLCOPEN-CP13' },
         { type: 'doc', id: 'detectors/PLCOPEN-CP16', label: 'PLCOPEN-CP16' },
         { type: 'doc', id: 'detectors/PLCOPEN-CP17', label: 'PLCOPEN-CP17' },
+        { type: 'doc', id: 'detectors/PLCOPEN-CP20', label: 'PLCOPEN-CP20' },
         { type: 'doc', id: 'detectors/PLCOPEN-CP25', label: 'PLCOPEN-CP25' },
         { type: 'doc', id: 'detectors/PLCOPEN-CP26', label: 'PLCOPEN-CP26' },
         { type: 'doc', id: 'detectors/PLCOPEN-CP28', label: 'PLCOPEN-CP28' },
