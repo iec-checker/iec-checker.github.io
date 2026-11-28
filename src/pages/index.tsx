@@ -67,11 +67,12 @@ export default function Home(): React.ReactElement {
                 <div className={styles.featureBox}>
                   <h3>📋 PLCOpen Compliance</h3>
                   <p>
-                    26{' '}
+                    27{' '}
                     <a href="/docs/detectors">PLCOpen Guideline checks</a>{' '}
                     covering naming, initialization, complexity, recursion,
-                    floating-point comparison and more, plus 2 built-in checks
-                    for out-of-bounds access and unused variables.
+                    floating-point comparison and more, plus 3 built-in checks
+                    for out-of-bounds access, unused variables and uncalled
+                    function block instances.
                   </p>
                 </div>
               </div>
