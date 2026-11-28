@@ -105,7 +105,14 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} <a href="/docs/sponsor-development" style="color: inherit; text-decoration: underline;">iec-checker contributors</a>`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: {
+        ...prismThemes.github,
+        styles: [
+          ...prismThemes.github.styles,
+          { types: ['class-name'], style: { color: '#6f42c1' } },
+          { types: ['function'], style: { color: '#953800' } },
+        ],
+      },
       darkTheme: prismThemes.oneDark,
     },
   } satisfies Preset.ThemeConfig,

@@ -145,7 +145,7 @@ export default function Home(): React.ReactElement {
           <div className="container">
             <h2 className={styles.featuresTitle}>Discover Detectors</h2>
             <p className={styles.featuresSummary}>
-              iec-checker ships with 28 built-in detectors that catch the
+              iec-checker ships with 30 built-in detectors that catch the
               most common classes of mistakes in Structured Text code.
             </p>
 
@@ -168,7 +168,11 @@ export default function Home(): React.ReactElement {
                   <p>
                     Catch the bugs that take production lines down, like{' '}
                     <a href="/docs/detectors/PLCOPEN-CP13">PLCOPEN-CP13</a>{' '}
-                    (no direct or indirect recursion).
+                    (no direct or indirect recursion),{' '}
+                    <a href="/docs/detectors/PLCOPEN-CP20">PLCOPEN-CP20</a>{' '}
+                    (one call per FB instance per cycle) and{' '}
+                    <a href="/docs/detectors/UncalledInstance">UncalledInstance</a>{' '}
+                    (timers and latches that are read but never called).
                   </p>
                 </div>
               </div>
